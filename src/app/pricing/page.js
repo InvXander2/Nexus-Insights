@@ -54,14 +54,14 @@ const Pricing = () => {
             </div>
             <div className='text-white mt-20 flex  max-[715px]:flex-col  gap-40 max-[860px]:gap-20 max-[775px]:gap-10 max-[970px]:justify-center items-center'>
                 <div>
-                    <h3 className='text-4xl mb-5 font-serif'>Invest with CoinBit today!!!</h3>
-                    <p className='w-[500px] max-[715px]:w-full leading-loose text-sm max-[775px]:text-[13px] text-slate-300'>Are you looking for a way to invest in the future of finance? If so, then Join us at CoinBit. We offer a wide variety of plans to choose from, as well as high returns and a user-friendly interface.
+                    <h3 className='text-4xl mb-5 font-serif'>Invest with Nexus Insights today!!!</h3>
+                    <p className='w-[500px] max-[715px]:w-full leading-loose text-sm max-[775px]:text-[13px] text-slate-300'>Are you looking for a way to invest in the future of finance? If so, then Join us at Nexus Insights. We offer a wide variety of plans to choose from, as well as high returns and a user-friendly interface.
 
                     With our platform, you can easily invest in cryptocurrencies with no prior idea on trading crypto. You can also track your investments and withdrawal is fast and secure.
 
                     We believe that cryptocurrencies are the future of finance, and we want to help you get involved. That's why we offer a variety of plans to help you with or without knowledge on cryptocurrencies to invest in them.
 
-                    So what are you waiting for? Join CoinBit today and start investing in the future!</p>
+                    So what are you waiting for? Join Nexus Insights today and start investing in the future!</p>
                     <Link href="/signup"><button className="bg-blue-500 p-3 w-64 rounded-full mt-10">Get Started</button></Link>
                 </div>
                 <img src="/businessman.png" alt="" className='w-36'/>
