@@ -15,13 +15,13 @@ const Footer = () => {
                         alt="logo"
                         className='w-16'
                     />
-                    <p className="text-2xl font-serif">CoinBit</p>
+                    <p className="text-2xl font-serif">Nexus Insights</p>
                 </div>
                 </Link>
                 <span className='flex  justify-between w-[500px] max-[850px]:w-[400px] max-[610px]:w-full'>
                 <div>
                     <p className="text-lg w-48 leading-loose font-normal max-[450px]:text-[15px] max-[365px]:text-[11px] max-[365px]:w-28">123 Market St. #22B Charlottesville, California 44635</p>
-                    <p className="text-[12px] mt-7 max-[450px]:mt-4">coinbit@gmail.com</p>
+                    <p className="text-[12px] mt-7 max-[450px]:mt-4">nexusinsights@gmail.com</p>
                 </div>
                 <div className="flex flex-col gap-5 text-[12px] max-[365px]:text-[11px]">
                     <Link href="/about"><p>About</p></Link>
@@ -37,7 +37,7 @@ const Footer = () => {
                 </div>
                 </span>
             </div>
-            <p className='flex items-center max-[450px]:text-[13px]'><AiOutlineCopyright /> 2022 coinbit. All rights reserved</p>
+            <p className='flex items-center max-[450px]:text-[13px]'><AiOutlineCopyright /> 2022 Nexus Insights. All rights reserved</p>
         </div>
        
      );
