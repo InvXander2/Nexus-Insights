@@ -63,7 +63,7 @@ const Navbar = () => {
             ): (
                 <div className="flex items-center gap-5 max-[310px]:gap-2">
                     <Link href="/signin"><p className="cursor-pointer  max-[720px]:text-[13px]">Login</p></Link>
-                    <Link href="/signup"><button className="bg-blue-500 h-14  max-[720px]:h-10 px-5 max-[400px]:px-1 max-[400px]:h-8 max-[400px]:text-[12px]  rounded-lg text-lg  max-[720px]:text-[13px]">Get Started</button></Link>
+                    <Link href="/signup"><button className="bg-blue-500 h-14  max-[720px]:h-10 px-5 max-[400px]:px-1 max-[400px]:h-8 max-[400px]:text-[12px]  rounded-lg text-lg  max-[720px]:text-[13px]">Register</button></Link>
                 </div>  
             )}
             {showMenu ? <AiOutlineClose className={`text-2xl font-bold min-[810px]:hidden cursor-pointer z-50 text-black `} onClick={()=> setShowMenu(!showMenu)}/>:
