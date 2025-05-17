@@ -16,16 +16,16 @@ const Body = () => {
     
     return ( 
         <div className="bg-white text-black mt-24 max-[875px]:mt-10 max-[720px]:mt-5  flex flex-col items-center justify-center px-28 max-[875px]:px-10  gap-5 pt-20">
-            <h3 className="text-2xl" data-aos="fade-zoom-in">What is CoinBit?</h3>
+            <h3 className="text-2xl" data-aos="fade-zoom-in">What is Nexus Insights?</h3>
             <p className="text-center text-sm leading-loose text-slate-500" data-aos="fade-zoom-in">
-                CoinBit is a team of wholesale investors, analysts and programmers. We have been working on cryptocurrency platforms (and not only) for more than 4 years and have a competitive portfolio. All meetings, communications and agreements with our partners (clients) are held in a transparent manner.
+                Nexus Insights is a team of wholesale investors, analysts and programmers. We have been working on cryptocurrency platforms (and not only) for more than 4 years and have a competitive portfolio. All meetings, communications and agreements with our partners (clients) are held in a transparent manner.
             </p>
             
             <div className="flex gap-20 max-[450px]:flex-col" data-aos="fade-zoom-in">
                 <div className="flex flex-col items-center justify-center gap-2">
                     <img src="/crypto1.svg" alt="img" className="w-20"/>
                     <h3 className="font-bold min-[450px]:hidden">Transarency</h3>
-                    <p className="text-[12px] text-slate-400 text-center min-[450px]:hidden">CoinBit is committed to transparency. We believe that it is important to be open and honest with our customers, employees, and other stakeholders. We believe that transparency builds trust and allows us to build stronger relationships.</p>
+                    <p className="text-[12px] text-slate-400 text-center min-[450px]:hidden">Nexus Insights is committed to transparency. We believe that it is important to be open and honest with our customers, employees, and other stakeholders. We believe that transparency builds trust and allows us to build stronger relationships.</p>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-2">
                     <img src="/crypto2.png" alt="img"className="w-20" />
@@ -35,13 +35,13 @@ const Body = () => {
                 <div className="flex flex-col items-center justify-center gap-2">
                     <img src="/crypto3.png" alt="img" className="w-20"/>
                     <h3 className="font-bold min-[450px]:hidden">Experience</h3>
-                    <p className="text-[12px] text-slate-400 text-center min-[450px]:hidden">CoinBit is a reliable and trustworthy business that has been in operation for many years. We have a proven track record of providing quality products and services to our customers. We are committed to meeting our customers' needs and expectations, and we strive to provide them with the best possible experience.</p>
+                    <p className="text-[12px] text-slate-400 text-center min-[450px]:hidden">Nexus Insights is a reliable and trustworthy business that has been in operation for many years. We have a proven track record of providing quality products and services to our customers. We are committed to meeting our customers' needs and expectations, and we strive to provide them with the best possible experience.</p>
                 </div>
             </div>
 
             <div className="flex max-[660px]:flex-col  justify-between gap-20  max-[720px]:gap-10 mt-20 overflow-hidden">
                 <div className="w-1/2 max-[660px]:w-full flex flex-col gap-5" data-aos="slide-right">
-                    <h3 className="text-4xl font-serif">Here at CoinBit,<br/> We are all about security!</h3>
+                    <h3 className="text-4xl font-serif">Here at Nexus Insights,<br/> We are all about security!</h3>
                     <p className="text-sm text-left text-slate-500 leading-loose">And how is security expressed? The smaller the investment in the investment, the greater the risk of failure. The more investments, the less risk.
                     Investment security means that your investment ($10 or $100) is not separately invested. Our experienced investors place bets from a common account, where there is always more than $100,000 on the balance.
 
