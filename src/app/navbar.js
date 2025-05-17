@@ -43,7 +43,7 @@ const Navbar = () => {
                         alt="logo"
                         className='w-16 max-[360px]:w-12 max-[310px]:w-10'
                     />
-                    <p className="text-2xl max-[360px]:text-xl max-[310px]:text-[15px] font-serif">CoinBit</p>
+                    <p className="text-2xl max-[360px]:text-xl max-[310px]:text-[15px] font-serif">Nexus Insights</p>
                 </div>
             </Link>
             <div className={`flex gap-10 max-[720px]:text-[13px] transition duration-200 ${!showMenu ? "max-[810px]:absolute max-[810px]:flex-col right-0 max-[810px]:hidden " : "z-10 flex-col absolute -top-5 right-0  max-[810px]:visible p-5 pt-8 h-56 bg-white text-black w-36 rounded-sm"} ${user && "text-[12px] max-[810px]:h-96 "}`}>
