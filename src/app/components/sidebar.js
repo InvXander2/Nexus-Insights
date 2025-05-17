@@ -57,7 +57,7 @@ const Sidebar = () => {
                         alt="logo"
                         className='w-12'
                     />
-                    <p className="text-2xl font-serif">CoinBit</p>
+                    <p className="text-2xl font-serif">Nexus Insights</p>
                 </div>
                 <div className="px-5 flex flex-col gap-10">
                     <div className="flex items-center gap-2" onClick={dashboardActive}>
@@ -97,7 +97,7 @@ const Sidebar = () => {
                     <IoLogoWhatsapp  className="text-lg text-green-800 cursor-pointer"/>
                     <AiFillInstagram className="text-lg text-red-700 cursor-pointer"/>
                 </div>
-                <p className="text-[12px] flex items-center gap-1 mt-5">< AiOutlineCopyright />copyright coinbit@2023</p>
+                <p className="text-[12px] flex items-center gap-1 mt-5">< AiOutlineCopyright />copyright Nexus Insights@2023</p>
             </div>
         </div>
      );
