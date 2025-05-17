@@ -62,7 +62,7 @@ const Pricing = () => {
                     We believe that cryptocurrencies are the future of finance, and we want to help you get involved. That's why we offer a variety of plans to help you with or without knowledge on cryptocurrencies to invest in them.
 
                     So what are you waiting for? Join Nexus Insights today and start investing in the future!</p>
-                    <Link href="/signup"><button className="bg-blue-500 p-3 w-64 rounded-full mt-10">Get Started</button></Link>
+                    <Link href="/signup"><button className="bg-blue-500 p-3 w-64 rounded-full mt-10">Register</button></Link>
                 </div>
                 <img src="/businessman.png" alt="" className='w-36'/>
             </div>
