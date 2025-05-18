@@ -89,6 +89,7 @@ const Pricing = () => {
                             {errorMessage && <p className="text-red-500 text-sm mt-2">{errorMessage}</p>}
                         </div>
 
+                        {/* Button Link that passes dynamic investment amount */}
                         <Link href={`/paymentDetails/${investmentAmount}`}>
                             <button className="bg-blue-900 p-3 w-full rounded-lg text-white mt-5 font-semibold text-[13px]">
                                 Invest Plan
