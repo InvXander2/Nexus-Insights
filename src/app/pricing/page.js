@@ -1,94 +1,111 @@
-import Link from 'next/link';
-import { BsCheck2All } from 'react-icons/bs';
+"use client"
+import { useState } from "react";
+import Link from "next/link";
+import { BsCheck2All } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 const Pricing = () => {
+    const router = useRouter();
+
+    // Define the price range for each plan
+    const plans = [
+        { name: "Basic", min: 200, max: 999, returns: 100, duration: "7 days", bonus: "$20 investment bonus" },
+        { name: "Standard", min: 1000, max: 4999, returns: 200, duration: "14 days", bonus: "$100 investment bonus" },
+        { name: "Advanced", min: 5000, max: 9999, returns: 900, duration: "7 days", bonus: "$300 investment bonus" },
+        { name: "Premium", min: 10000, max: Infinity, returns: 2000, duration: "14 days", bonus: "$500 investment bonus" }
+    ];
+
+    const [selectedPlan, setSelectedPlan] = useState(plans[0]);  // Default plan (Basic)
+    const [investmentAmount, setInvestmentAmount] = useState(selectedPlan.min);
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const handleAmountChange = (e) => {
+        const value = parseFloat(e.target.value);
+        if (value >= selectedPlan.min && value <= selectedPlan.max) {
+            setInvestmentAmount(value);
+            setErrorMessage("");
+        } else {
+            setErrorMessage(`Amount must be between $${selectedPlan.min} and $${selectedPlan.max}`);
+        }
+    };
+
     return (
         <div className="bg-gradient-to-tl from-blue-900 to-black pb-10 px-28 max-[610px]:px-20 max-[472px]:px-10 max-[390px]:px-5 pt-20 text-black">
             <div className="flex flex-col items-center gap-5 justify-center pt-10">
                 <h3 className="text-white text-6xl max-[610px]:text-5xl max-[350px]:text-4xl font-semibold">Pricing plans</h3>
-                <p className="text-center text-[14px] max-[350px]:text-[12px] text-slate-400">
-                    Our pricing plans are designed to be affordable, flexible and tailored to fit into the pockets of people
-                </p>
+                <p className="text-center text-[14px] max-[350px]:text-[12px] text-slate-400">Our pricing plans are designed to be affordable, flexible and tailored to fit into the pockets of people</p>
             </div>
 
-            <div className='flex max-[825px]:flex-col justify-center items-center mt-20 gap-5'>
-                {/* BASIC PLAN */}
-                <div className='flex flex-col max-[825px]:w-full gap-3 bg-white p-5 rounded-lg'>
-                    <div>
-                        <h3 className='text-2xl font-semibold mb-1'>Basic</h3>
-                        <p className='text-[13px]'>Low budget investment</p>
-                        <h3 className='text-3xl p-3 shadow-sm shadow-slate-400 my-3 w-72 rounded-lg text-black'>$200 - $999</h3>
-                    </div>
-                    <div className='flex flex-col gap-3'>
-                        <span className='flex items-center gap-2'><BsCheck2All /><p>100% Returns</p></span>
-                        <span className='flex items-center gap-2'><BsCheck2All /><p>24 hours duration</p></span>
-                        <span className='flex items-center gap-2'><BsCheck2All /><p>Starter-friendly</p></span>
-                        <span className='flex items-center gap-2'><BsCheck2All /><p>No investment bonus</p></span>
-                    </div>
-                    <Link href="/paymentDetails/basic"><button className="bg-blue-900 p-3 w-full rounded-lg text-white mt-5 font-semibold text-[13px]">Invest Plan</button></Link>
-                </div>
+            <div className="flex max-[825px]:flex-col justify-center items-center mt-20 gap-5">
+                {plans.map((plan, index) => (
+                    <div
+                        key={index}
+                        className={`flex flex-col max-[825px]:w-full gap-3 bg-white p-5 rounded-lg ${selectedPlan.name === plan.name ? 'shadow-lg shadow-slate-500' : ''}`}
+                        onClick={() => setSelectedPlan(plan)}
+                    >
+                        <div>
+                            <h3 className="text-2xl font-semibold mb-1">{plan.name}</h3>
+                            <p className="text-[13px]">{plan.name === "Basic" ? "Low budget investment" : plan.name === "Standard" ? "Most popular investment" : "Big investors investment"}</p>
+                            <h3 className="text-5xl p-3 shadow-sm shadow-slate-400 my-3 w-72 max-[1100px]:w-60 max-[910px]:w-52 max-[825px]:w-full max-[910px]:text-4xl rounded-lg text-black">
+                                ${plan.min}
+                            </h3>
+                        </div>
+                        <div className="flex flex-col gap-3">
+                            <span className="flex items-center gap-2">
+                                <BsCheck2All />
+                                <p>{plan.returns}% Returns</p>
+                            </span>
+                            <span className="flex items-center gap-2">
+                                <BsCheck2All />
+                                <p>{plan.duration} duration</p>
+                            </span>
+                            <span className="flex items-center gap-2">
+                                <BsCheck2All />
+                                <p>{plan.name === "Premium" ? "Big investors size" : "Affordable pocket size"}</p>
+                            </span>
+                            <span className="flex items-center gap-2">
+                                <BsCheck2All />
+                                <p>{plan.bonus}</p>
+                            </span>
+                        </div>
 
-                {/* STANDARD PLAN */}
-                <div className='flex flex-col max-[825px]:w-full gap-3 bg-white p-5 rounded-lg shadow-md shadow-slate-500'>
-                    <div>
-                        <h3 className='text-2xl font-semibold mb-1'>Standard</h3>
-                        <p className='text-[13px]'>Most popular investment</p>
-                        <h3 className='text-3xl p-3 shadow-sm shadow-slate-400 my-3 w-72 rounded-lg'>$1,000 - $4,999</h3>
-                    </div>
-                    <div className='flex flex-col gap-3'>
-                        <span className='flex items-center gap-2'><BsCheck2All /><p>350% Returns</p></span>
-                        <span className='flex items-center gap-2'><BsCheck2All /><p>72 hours duration</p></span>
-                        <span className='flex items-center gap-2'><BsCheck2All /><p>$20 investment bonus</p></span>
-                    </div>
-                    <Link href="/paymentDetails/standard"><button className="bg-blue-900 p-3 w-full rounded-lg text-white mt-5 font-semibold text-[13px]">Invest Plan</button></Link>
-                </div>
+                        {/* Investment Input and Validation */}
+                        <div className="mt-5">
+                            <input
+                                type="number"
+                                value={investmentAmount}
+                                onChange={handleAmountChange}
+                                className="p-3 border w-full rounded-lg"
+                                min={plan.min}
+                                max={plan.max}
+                                placeholder={`Enter amount ($${plan.min} - $${plan.max})`}
+                            />
+                            {errorMessage && <p className="text-red-500 text-sm mt-2">{errorMessage}</p>}
+                        </div>
 
-                {/* ADVANCED PLAN */}
-                <div className='flex flex-col max-[825px]:w-full gap-3 bg-white p-5 rounded-lg'>
-                    <div>
-                        <h3 className='text-2xl font-semibold mb-1'>Advanced</h3>
-                        <p className='text-[13px]'>For serious investors</p>
-                        <h3 className='text-3xl p-3 shadow-sm shadow-slate-400 my-3 w-72 rounded-lg'>$5,000 - $9,999</h3>
+                        <Link href={`/paymentDetails/${investmentAmount}`}>
+                            <button className="bg-blue-900 p-3 w-full rounded-lg text-white mt-5 font-semibold text-[13px]">
+                                Invest Plan
+                            </button>
+                        </Link>
                     </div>
-                    <div className='flex flex-col gap-3'>
-                        <span className='flex items-center gap-2'><BsCheck2All /><p>900% Returns</p></span>
-                        <span className='flex items-center gap-2'><BsCheck2All /><p>7 days duration</p></span>
-                        <span className='flex items-center gap-2'><BsCheck2All /><p>$100 investment bonus</p></span>
-                    </div>
-                    <Link href="/paymentDetails/advanced"><button className="bg-blue-900 p-3 w-full rounded-lg text-white mt-5 font-semibold text-[13px]">Invest Plan</button></Link>
-                </div>
-
-                {/* PREMIUM PLAN */}
-                <div className='flex flex-col max-[825px]:w-full gap-3 bg-white p-5 rounded-lg'>
-                    <div>
-                        <h3 className='text-2xl font-semibold mb-1'>Premium</h3>
-                        <p className='text-[13px]'>Elite investor package</p>
-                        <h3 className='text-3xl p-3 shadow-sm shadow-slate-400 my-3 w-72 rounded-lg'>$10,000 +</h3>
-                    </div>
-                    <div className='flex flex-col gap-3'>
-                        <span className='flex items-center gap-2'><BsCheck2All /><p>2000% Returns</p></span>
-                        <span className='flex items-center gap-2'><BsCheck2All /><p>14 days duration</p></span>
-                        <span className='flex items-center gap-2'><BsCheck2All /><p>$500 investment bonus</p></span>
-                    </div>
-                    <Link href="/paymentDetails/premium"><button className="bg-blue-900 p-3 w-full rounded-lg text-white mt-5 font-semibold text-[13px]">Invest Plan</button></Link>
-                </div>
+                ))}
             </div>
 
-            <div className='text-white mt-20 flex max-[715px]:flex-col gap-40 max-[860px]:gap-20 max-[775px]:gap-10 max-[970px]:justify-center items-center'>
+            <div className="text-white mt-20 flex max-[715px]:flex-col gap-40 max-[860px]:gap-20 max-[775px]:gap-10 max-[970px]:justify-center items-center">
                 <div>
-                    <h3 className='text-4xl mb-5 font-serif'>Invest with Nexus Insights today!!!</h3>
-                    <p className='w-[500px] max-[715px]:w-full leading-loose text-sm max-[775px]:text-[13px] text-slate-300'>
-                        Are you looking for a way to invest in the future of finance? If so, then join us at Nexus Insights. We offer a wide variety of plans to choose from, high returns, and a user-friendly interface.
-                        <br /><br />
-                        With our platform, you can easily invest in cryptocurrencies with no prior knowledge of trading. Track your investments with fast and secure withdrawals.
-                        <br /><br />
-                        We believe cryptocurrencies are the future of finance. Whether you're a pro or beginner, we make it easy for you to grow with us.
-                        <br /><br />
+                    <h3 className="text-4xl mb-5 font-serif">Invest with Nexus Insights today!!!</h3>
+                    <p className="w-[500px] max-[715px]:w-full leading-loose text-sm max-[775px]:text-[13px] text-slate-300">
+                        Are you looking for a way to invest in the future of finance? If so, then Join us at Nexus Insights. We offer a wide variety of plans to choose from, as well as high returns and a user-friendly interface.
+                        With our platform, you can easily invest in cryptocurrencies with no prior idea on trading crypto. You can also track your investments and withdrawal is fast and secure.
+                        We believe that cryptocurrencies are the future of finance, and we want to help you get involved. That's why we offer a variety of plans to help you with or without knowledge on cryptocurrencies to invest in them.
                         So what are you waiting for? Join Nexus Insights today and start investing in the future!
                     </p>
-                    <Link href="/signup"><button className="bg-blue-500 p-3 w-64 rounded-full mt-10">Register</button></Link>
+                    <Link href="/signup">
+                        <button className="bg-blue-500 p-3 w-64 rounded-full mt-10">Register</button>
+                    </Link>
                 </div>
-                <img src="/businessman.png" alt="" className='w-36' />
+                <img src="/businessman.png" alt="" className="w-36" />
             </div>
         </div>
     );
