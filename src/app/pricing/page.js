@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import { useState } from "react";
 import Link from "next/link";
 import { BsCheck2All } from "react-icons/bs";
 import { useRouter } from "next/router";
 
 const Pricing = () => {
-    const router = useRouter();
+    const router = useRouter(); // Next.js router for dynamic navigation
 
     // Define the price range for each plan
     const plans = [
@@ -29,6 +29,12 @@ const Pricing = () => {
         }
     };
 
+    // Handle the plan selection and dynamic link generation
+    const handlePlanSelect = (plan) => {
+        setSelectedPlan(plan);
+        setInvestmentAmount(plan.min);
+    };
+
     return (
         <div className="bg-gradient-to-tl from-blue-900 to-black pb-10 px-28 max-[610px]:px-20 max-[472px]:px-10 max-[390px]:px-5 pt-20 text-black">
             <div className="flex flex-col items-center gap-5 justify-center pt-10">
@@ -41,7 +47,7 @@ const Pricing = () => {
                     <div
                         key={index}
                         className={`flex flex-col max-[825px]:w-full gap-3 bg-white p-5 rounded-lg ${selectedPlan.name === plan.name ? 'shadow-lg shadow-slate-500' : ''}`}
-                        onClick={() => setSelectedPlan(plan)}
+                        onClick={() => handlePlanSelect(plan)}  // Update selected plan on click
                     >
                         <div>
                             <h3 className="text-2xl font-semibold mb-1">{plan.name}</h3>
