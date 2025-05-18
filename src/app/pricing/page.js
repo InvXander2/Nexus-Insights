@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { BsCheck2All } from "react-icons/bs";
 import { useRouter } from "next/router";
@@ -19,6 +19,12 @@ const Pricing = () => {
     const [investmentAmount, setInvestmentAmount] = useState(selectedPlan.min);
     const [errorMessage, setErrorMessage] = useState("");
 
+    // Ensure the component is mounted before accessing router
+    const [isMounted, setIsMounted] = useState(false);
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     const handleAmountChange = (e) => {
         const value = parseFloat(e.target.value);
         if (value >= selectedPlan.min && value <= selectedPlan.max) {
@@ -34,6 +40,10 @@ const Pricing = () => {
         setSelectedPlan(plan);
         setInvestmentAmount(plan.min);
     };
+
+    if (!isMounted) {
+        return null; // Prevent rendering until the component has mounted
+    }
 
     return (
         <div className="bg-gradient-to-tl from-blue-900 to-black pb-10 px-28 max-[610px]:px-20 max-[472px]:px-10 max-[390px]:px-5 pt-20 text-black">
